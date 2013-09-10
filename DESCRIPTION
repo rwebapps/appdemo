@@ -11,3 +11,4 @@ License: Apache2
 LazyData: true
 Collate:
     'hello.R'
+    'randomplot.R'

@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Hello</title>
+    <title>Simple Plot</title>
     
     <!-- Include order: first jquery, then opencpu.js, and then your code -->
     <script src="opencpu/jquery-1.10.1.min.js"></script>
     <script src="opencpu/opencpu.js"></script>
+
     <script>
     //init this script when the page has loaded
     $(document).ready(function(){
       $("#submitbutton").on("click", function(){
+        
         //disable the button to prevent multiple clicks
         $("#submitbutton").attr("disabled", "disabled");
         
         //read the value for 'myname'
-        var myname = $("#namefield").val();
+        var nfield = $("#nfield").val();
+        var distfield = $("#distfield").val();
         
-        //perform the request
-        var req = opencpu.r_fun_json("hello", {
-          myname : myname
-        }, function(output){
-          $("#output").text(output.message);
-        });
-        
+        //create the plot area on the plotdiv element
+        var req = $("#plotdiv").r_fun_plot("randomplot", {
+          n : nfield,
+          dist : distfield
+        })
+
         //if R returns an error, alert the error message
         req.fail(function(){
           alert("Server error: " + req.responseText);
@@ -37,37 +39,36 @@
     </script>
     
     <style>
-      #output{
-        height: 80px;
-        width: 500px;
-        border: 1px solid gray;
-        padding: 3px;
+      #plotdiv {
+        position: relative;
+        width: 600px;
+        height: 400px;
+        border: solid gray 1px;
       }
     </style>
     
   </head>
     
   <body>
-    <h1>Hello, world!</h1>
+    <h1>Basic plotting</h1>
     
-    <b>Your name: </b> <input type="text" id="namefield">
+    <b>n (count) </b> <input type="number" id="nfield" value="1000">
     
+    <b>distribution type</b> <select id="distfield">
+      <option>normal</option>
+      <option>uniform</option>
+    </select> 
+    
+    <br />
     <button id="submitbutton" type="button">Submit to server!</button>
     
-    <p id="output"></p>
-  
+    <div id="plotdiv"></div>      
+
     <br />
 
     <p>
-     This is a basic JSON RPC call to OpenCPU. We use <tt>r_fun_json</tt> from the <tt>opencpu.js</tt> library to call the R function called <tt>hello</tt> included in this R package. 
+     This page shows the <tt>opencpu.js</tt> plot widget. We use <tt>r_fun_plot</tt> from the <tt>opencpu.js</tt> library to call the R function called <a href="../R/randomplot">randomplot</a>.</li> included in this R package. 
     </p>
-    
-    <p>Have a look at the HTML source code! Some things to notice:</p>
-    <ul>
-      <li>We can always see the source code of the R function using the API, e.g <a href="../R/hello">here</a>.</li>
-      <li>If the R function has a manual page, it we can find it <a href="../man/hello">here</a></li>
-      <li>When the name field is empty, the R function raises an error. Notice how we deal with this in javascript.</li>
-    </ul>
     
   </body>
 </html>
