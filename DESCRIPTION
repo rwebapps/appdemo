@@ -1,0 +1,13 @@
+Package: appdemo
+Type: OpenCPU Application
+Title: OpenCPU Demo App
+Version: 0.1
+Date: 2013-09-10
+Author: Jeroen Ooms
+Maintainer: Jeroen <jeroenooms@gmail.com>
+Description: This package is an example of an OpenCPU App. It demonstrates
+    basic functionality of the API and Javascript library.
+License: Apache2
+LazyData: true
+Collate:
+    'hello.R'
