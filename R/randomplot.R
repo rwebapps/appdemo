@@ -4,7 +4,7 @@
 #' 
 #' @export
 #' @param n numer of random values 
-#' @param dist one of "norm" or "unif".
+#' @param dist one of "normal" or "uniform".
 randomplot <- function(n, dist=c("normal", "uniform")){
   #input validation
   dist <- match.arg(dist)

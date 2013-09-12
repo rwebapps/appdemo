@@ -12,3 +12,4 @@ LazyData: true
 Collate:
     'hello.R'
     'randomplot.R'
+    'readcsvnew.R'

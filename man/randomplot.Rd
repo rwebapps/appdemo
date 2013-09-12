@@ -7,9 +7,9 @@
 \arguments{
   \item{n}{numer of random values}
 
-  \item{dist}{one of "norm" or "unif".}
+  \item{dist}{one of "normal" or "uniform".}
 }
 \description{
-  This function creates a random plot.
+  This function creates a random histogram plot.
 }
 
