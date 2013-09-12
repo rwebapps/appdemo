@@ -129,6 +129,7 @@
   //call a function using multipart/form-data
   //use for file uploads. Requires HTML5
   function r_fun_call_multipart(fun, args, handler){
+    testhtml5();
     var formdata = new FormData();
     $.each(args, function(key, value) {
       formdata.append(key, stringify(value));
@@ -180,6 +181,7 @@
   //post form data (including files)
   $.fn.r_post_form = function(fun, handler) {
     
+    testhtml5();    
     var targetform = this; 
     var postdata = new FormData(targetform[0]);
     
@@ -307,6 +309,13 @@
         result = func.apply(context, args);
       return result;
     }
+  }
+  
+  function testhtml5(){
+    if( window.FormData === undefined ) {
+      alert("Uploading of files requires HTML5. It looks like you are using an outdated browser that does not support this. Please install Firefox, Chrome or Internet Explorer 10+");
+      throw "HTML5 required.";
+    }    
   }
   
   //export
