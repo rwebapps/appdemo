@@ -9,7 +9,3 @@ Description: This package is an example of an OpenCPU App. It demonstrates
     basic functionality of the API and Javascript library.
 License: Apache2
 LazyData: true
-Collate:
-    'hello.R'
-    'randomplot.R'
-    'readcsvnew.R'
