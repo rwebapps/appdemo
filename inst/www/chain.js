@@ -57,4 +57,9 @@ $(document).ready(function(){
     
     uploadcsv(myfile, myheader);        
   });    
+
+  //this is only needed for cross domain apps (i.e. web pages hosted outside opencpu)
+  if(!location.pathname.match("/library/appdemo")){
+    opencpu.seturl("//public.opencpu.org/ocpu/library/appdemo/R");
+  }  
 });
