@@ -36,8 +36,8 @@
         });
       });
      
-      //this is only needed for cross domain apps (i.e. web pages hosted outside opencpu)
-      if(!location.pathname.match("/library/appdemo")){
+      //this is only needed when using CORS (i.e. web pages hosted outside opencpu)
+      if(!location.pathname.match("^/ocpu/.*/appdemo/www")){
         opencpu.seturl("//public.opencpu.org/ocpu/library/appdemo/R");
       }
     });
