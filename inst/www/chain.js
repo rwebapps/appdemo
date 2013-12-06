@@ -5,7 +5,7 @@ $(document).ready(function(){
     $("#submitbutton").attr("disabled", "disabled");        
     
     //perform the request
-    var req = opencpu.r_fun_call("readcsvnew", {
+    var req = ocpu.call("readcsvnew", {
       file : file,
       header : header
     }, function(session){
@@ -27,21 +27,15 @@ $(document).ready(function(){
   
   function printsummary(mydata){
     //perform the request
-    var req = opencpu.r_fun_call("printsummary", {
+    var req = ocpu.call("printsummary", {
       mydata : mydata
     }, function(session){
-      var url = session.getLoc() +  "console/text";
-      downloadfile(url);
+      session.getConsole(function(output){
+        $("#output code").text(output);
+      });
     }).fail(function(){
       alert("Server error: " + req.responseText);
     });        
-  }
-  
-  //standard jQuery stuff
-  function downloadfile(url){
-    $.get(url, function(output){
-      $("#output code").text(output)
-    });
   }
   
   $("#submitbutton").on("click", function(){
@@ -56,10 +50,5 @@ $(document).ready(function(){
     }
     
     uploadcsv(myfile, myheader);        
-  });    
-
-  //this is only needed when using CORS (i.e. web pages hosted outside opencpu)
-  if(!location.pathname.match("^/ocpu/.*/appdemo/www")){
-    opencpu.seturl("//public.opencpu.org/ocpu/library/appdemo/R");
-  }  
+  });
 });

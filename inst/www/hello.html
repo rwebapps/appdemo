@@ -4,8 +4,8 @@
     <title>Hello</title>
     
     <!-- Include order: first jquery, then opencpu.js, and then your code -->
-    <script src="opencpu/jquery-1.10.1.min.js"></script>
-    <script src="opencpu/opencpu.js"></script>
+    <script src="opencpu/jquery-1.10.2.min.js"></script>
+    <script src="opencpu/opencpu-0.4.js"></script>
     <script>
     //init this script when the page has loaded
     $(document).ready(function(){
@@ -17,7 +17,7 @@
         var myname = $("#namefield").val();
         
         //perform the request
-        var req = opencpu.r_fun_json("hello", {
+        var req = opencpu.rpc("hello", {
           myname : myname
         }, function(output){
           $("#output").text(output.message);
@@ -33,11 +33,6 @@
           $("#submitbutton").removeAttr("disabled")
         });
       });
-
-      //this is only needed when using CORS (i.e. web pages hosted outside opencpu)
-      if(!location.pathname.match("^/ocpu/.*/appdemo/www")){
-        opencpu.seturl("//public.opencpu.org/ocpu/library/appdemo/R");
-      }
     });
     </script>
     
@@ -64,7 +59,7 @@
     <br />
 
     <p>
-     This is a basic JSON RPC call to OpenCPU. We use <tt>r_fun_json</tt> from the <tt>opencpu.js</tt> library to call the R function called <tt>hello</tt> included in this R package. 
+     This is a basic JSON RPC call to OpenCPU. We use <tt>ocpu.rpc</tt> from the <tt>opencpu.js</tt> library to call the R function called <tt>hello</tt> included in this R package. 
     </p>
     
     <p>Have a look at the HTML source code! Some things to notice:</p>

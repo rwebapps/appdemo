@@ -4,8 +4,8 @@
     <title>Simple Plot</title>
     
     <!-- Include order: first jquery, then opencpu.js, and then your code -->
-    <script src="opencpu/jquery-1.10.1.min.js"></script>
-    <script src="opencpu/opencpu.js"></script>
+    <script src="opencpu/jquery-1.10.2.min.js"></script>
+    <script src="opencpu/opencpu-0.4.js"></script>
 
     <script>
     //init this script when the page has loaded
@@ -20,7 +20,7 @@
         var distfield = $("#distfield").val();
         
         //create the plot area on the plotdiv element
-        var req = $("#plotdiv").r_fun_plot("randomplot", {
+        var req = $("#plotdiv").rplot("randomplot", {
           n : nfield,
           dist : distfield
         })
@@ -35,11 +35,6 @@
           $("#submitbutton").removeAttr("disabled")
         });
       });
-     
-      //this is only needed when using CORS (i.e. web pages hosted outside opencpu)
-      if(!location.pathname.match("^/ocpu/.*/appdemo/www")){
-        opencpu.seturl("//public.opencpu.org/ocpu/library/appdemo/R");
-      }
     });
     </script>
     
@@ -72,7 +67,7 @@
     <br />
 
     <p>
-     This page shows the <tt>opencpu.js</tt> plot widget. We use <tt>r_fun_plot</tt> from the <tt>opencpu.js</tt> library to call the R function called <a href="../R/randomplot">randomplot</a>.</li> included in this R package. 
+     This page shows the <tt>opencpu.js</tt> plot widget. We use <tt>jQuery.rplot</tt> plugin from the <tt>opencpu.js</tt> library to call the R function called <a href="../R/randomplot">randomplot</a>.</li> included in this R package. 
     </p>
     
   </body>

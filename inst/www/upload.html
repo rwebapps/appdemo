@@ -4,8 +4,8 @@
     <title>Uploading a file</title>
     
     <!-- Include order: first jquery, then opencpu.js, and then your code -->
-    <script src="opencpu/jquery-1.10.1.min.js"></script>
-    <script src="opencpu/opencpu.js"></script>
+    <script src="opencpu/jquery-1.10.2.min.js"></script>
+    <script src="opencpu/opencpu-0.4.js"></script>
 
     <script>
     //init this script when the page has loaded
@@ -25,7 +25,7 @@
         $("#submitbutton").attr("disabled", "disabled");
 
         //perform the request
-        var req = opencpu.r_fun_call("readcsvnew", {
+        var req = ocpu.call("readcsvnew", {
           file : myfile,
           header : myheader
         }, function(session){
@@ -41,12 +41,7 @@
         req.always(function(){
           $("#submitbutton").removeAttr("disabled")
         });        
-      });    
-      
-      //this is only needed when using CORS (i.e. web pages hosted outside opencpu)
-      if(!location.pathname.match("^/ocpu/.*/appdemo/www")){
-        opencpu.seturl("//public.opencpu.org/ocpu/library/appdemo/R");
-      }      
+      });       
     });
     </script>
     
