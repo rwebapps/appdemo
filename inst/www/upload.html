@@ -34,7 +34,7 @@
           $("#csvlink").attr("href", session.getLoc() + "R/.val/csv")
           $("#tablink").attr("href", session.getLoc() + "R/.val/tab")
           $("#jsonlink").attr("href", session.getLoc() + "R/.val/json")
-          $("#markdownlink").attr("href", session.getLoc() + "R/.val/md")
+          $("#mdlink").attr("href", session.getLoc() + "R/.val/md")
         });
         
         //if R returns an error, alert the error message
@@ -74,12 +74,12 @@
     <p>Export the data frame:</p>
 
     <ol>
-      <li><a id="rdalink">rdata</a></li>    
-      <li><a id="jsonlink">json</a></li>
-      <li><a id="csvlink">csv</a></li>
-      <li><a id="tablink">tab</a></li>
-      <li><a id="printlink">print</a></li>
-      <li><a id="mdlink">markdown</a></li>
+      <li><a target="_blank" id="rdalink">rdata</a></li>    
+      <li><a target="_blank" id="jsonlink">json</a></li>
+      <li><a target="_blank" id="csvlink">csv</a></li>
+      <li><a target="_blank" id="tablink">tab</a></li>
+      <li><a target="_blank" id="printlink">print</a></li>
+      <li><a target="_blank" id="mdlink">markdown</a></li>
     </ol>
 
     <p>
