@@ -386,7 +386,7 @@
         var req = $.get(r_path.href, function(resdata){
           console.log("Path updated. Available objects/functions:\n" + resdata);
         }).fail(function(){
-          alert("Connection to OpenCPU failed:\n\n" + res.responseText);
+          alert("Connection to OpenCPU failed:\n\n" + req.responseText);
         });
       } catch(err) {
         alert("Failed to connect to OpenCPU. Probably CORS problem.\n\n" + err.message)
