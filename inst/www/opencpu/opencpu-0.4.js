@@ -382,17 +382,11 @@
       }
 
       //we use trycatch because javascript will throw an error in case CORS is refused.
-      try {
-        var req = $.get(r_path.href, function(resdata){
-          console.log("Path updated. Available objects/functions:\n" + resdata);
-        });
-
-        req.fail(function(){
-          alert("Connection to OpenCPU failed:\n\n" + req.responseText);
-        });
-      } catch(err) {
-        alert("Failed to connect to OpenCPU. Probably CORS problem.\n\n" + err.message)
-      }
+      $.get(r_path.href, function(resdata){
+        console.log("Path updated. Available objects/functions:\n" + resdata);
+      }).fail(function(xhr, textStatus, errorThrown){
+        alert("Connection to OpenCPU failed:\n" + textStatus + "\n" + xhr.responseText + "\n" + errorThrown);
+      });
     }
   }
 
