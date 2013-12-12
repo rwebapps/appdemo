@@ -385,7 +385,9 @@
       try {
         var req = $.get(r_path.href, function(resdata){
           console.log("Path updated. Available objects/functions:\n" + resdata);
-        }).fail(function(){
+        });
+
+        req.fail(function(){
           alert("Connection to OpenCPU failed:\n\n" + req.responseText);
         });
       } catch(err) {
