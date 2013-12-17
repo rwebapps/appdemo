@@ -169,8 +169,7 @@
       data[key] = stringify(val);
     });
     return r_fun_ajax(fun, {
-      data: $.param(data),
-      contentType : 'x-www-form-urlencoded',       
+      data: $.param(data)
     }, handler);    
   }
   
