@@ -1,6 +1,6 @@
 /**
  * Javascript client library for OpenCPU
- * Version 0.4
+ * Version 0.4.1
  * Depends: jQuery
  * Requires HTML5 FormData support for file uploads
  * http://github.com/jeroenooms/opencpu.js
@@ -169,7 +169,7 @@
       data[key] = stringify(val);
     });
     return r_fun_ajax(fun, {
-      data: $.param(data)
+      data: $.param(data)      
     }, handler);    
   }
   
