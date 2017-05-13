@@ -1,10 +1,10 @@
 Package: appdemo
 Type: Package
-Title: OpenCPU Demo App
-Version: 0.4
-Date: 2013-12-05
+Title: OpenCPU Demo Application
+Version: 1.0
+Date: 2017-05-13
 Author: Jeroen Ooms
-Maintainer: Jeroen <jeroenooms@gmail.com>
+Maintainer: Jeroen Ooms <jeroen@berkeley.edu>
 Description: This package is an example of an OpenCPU App. It demonstrates
     basic functionality of the API and Javascript library.
 License: Apache2
